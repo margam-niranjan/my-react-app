@@ -1,33 +1,15 @@
 import React, { useState } from "react";
 import '../index.css'; 
 
-export default function About() {
-  const [mySytle, setMyStyle] = useState({
-    color: 'black',
-    backgroundColor: 'white'
-  });
-  const [buttonText, setButtonText] = useState("Enable light Mode");
-
-  let toggleStyle = () => {
-    if (mySytle.color === 'black') {
-      setMyStyle({
-        color: 'white',
-        backgroundColor: 'black',
-        border:'1px solid white'
-        
-      });
-      setButtonText("Enable light Mode");
-
-    } else {
-      setMyStyle({
-        color: 'black',
-        backgroundColor: 'white',
-      });
-      
-      setButtonText("Enable dark Mode");
-    }
-  };
-
+export default function About(props) {
+  // const [mySytle, setMyStyle] = useState({
+  //   color: 'black',
+  //   backgroundColor: 'white'
+  // });
+  let mySytle = {
+    color : props.mode === 'dark' ? 'white' : 'black',
+    backgroundColor : props.mode === 'dark' ? '#26292b' : 'white'
+  }
   return (
     <div className="container my-3" >
       <h1>About Us</h1>
@@ -43,7 +25,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+              Analyse Your text
             </button>
           </h2>
           <div
@@ -52,14 +34,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={mySytle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            Certainly! When analyzing my text, you might notice several key features. Firstly, it aims to be clear and informative, providing direct responses to questions or prompts. Secondly, there's a conversational tone, making interactions feel natural and engaging. Additionally, you'll find a balance between being helpful and respectful, ensuring a positive experience for users. Overall, the text reflects an attempt to communicate effectively while maintaining a friendly and approachable demeanor.
             </div>
           </div>
         </div>
@@ -74,7 +49,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+              Free to use
             </button>
           </h2>
           <div
@@ -83,14 +58,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={mySytle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            "In today's fast-paced world, effective communication is paramount. Whether in personal interactions or professional settings, clarity and conciseness are key. With the rise of digital communication, mastering the art of conveying ideas succinctly has become even more important. By striking a balance between brevity and depth, individuals can ensure their messages resonate and leave a lasting impact."
             </div>
           </div>
         </div>
@@ -105,7 +73,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+              Browser Compatible
             </button>
           </h2>
           <div
@@ -114,22 +82,12 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={mySytle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            Browser compatibility refers to the ability of a website or web application to function correctly across different web browsers. As the internet ecosystem includes various browsers like Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari, ensuring compatibility ensures that users have a consistent experience regardless of their chosen browser. Developers use coding practices, standards compliance, and testing methods to ensure their creations work seamlessly across these platforms, optimizing accessibility and usability for all users.
             </div>
           </div>
         </div>
       </div>
       <div className="container">
-        <button className="btn btn-primary my-2" onClick={toggleStyle}>
-          {buttonText}
-        </button>
       </div>
     </div>
   );
